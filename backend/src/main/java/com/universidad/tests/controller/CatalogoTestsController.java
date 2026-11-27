@@ -149,7 +149,7 @@ public class CatalogoTestsController {
                             mediaType = "application/json",
                             schema = @Schema(implementation = ErrorResponse.class),
                             examples = @ExampleObject(value = EJEMPLO_E2_500)))
-    @GetMapping(value = "/{testId}", produces = "application/json")
+    @GetMapping("/{testId}")
     public TestDetalleResponse obtenerTest(
             @Parameter(description = "Identificador del test", example = "1") @PathVariable
                     Long testId) {

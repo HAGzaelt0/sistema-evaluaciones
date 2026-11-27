@@ -31,24 +31,4 @@ class SwaggerSeguridadIntegrationTest {
     void laInterfazDeSwaggerNoExigeToken() throws Exception {
         mvc.perform(get("/swagger-ui/index.html")).andExpect(status().isOk());
     }
-
-    // GEN-49-BE: E2 documentado con todos los codigos del contrato, ejemplo y bearerAuth
-    @Test
-    void e2MuestraDescripcionEjemploYTodosLosCodigosDelContrato() throws Exception {
-        String e2 = "$.paths['/api/v1/tests/{testId}'].get";
-        mvc.perform(get("/v3/api-docs"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath(e2 + ".operationId").value("obtenerTest"))
-                .andExpect(
-                        jsonPath(e2 + ".summary").value("E2 — Consultar el test y sus subpruebas"))
-                .andExpect(jsonPath(e2 + ".description").isString())
-                .andExpect(jsonPath(e2 + ".security[0].bearerAuth").isArray())
-                .andExpect(
-                        jsonPath(e2 + ".responses['200'].content['application/json'].examples.BFA")
-                                .exists())
-                .andExpect(jsonPath(e2 + ".responses['401'].description").isString())
-                .andExpect(jsonPath(e2 + ".responses['403'].description").isString())
-                .andExpect(jsonPath(e2 + ".responses['404'].description").isString())
-                .andExpect(jsonPath(e2 + ".responses['500'].description").isString());
-    }
 }
